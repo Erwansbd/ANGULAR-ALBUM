@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let album of albums; let i = index;" class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <a [routerLink]="['/album-details',album.id]">
+                {{i}} - {{album.nom}}
+            </a>
+        </div>
+    </div>
+</div>
+<div *ngIf="selectedAlbum">
+    <app-album-details *ngIf="selectedAlbum" [album]="selectedAlbum"></app-album-details>
+    <button type="button" (click)="unselect()">Retour</button>
+</div>

@@ -1,0 +1,13 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <input type="text" name="nom" placeholder="Nom de l'album" ngModel required>
+        <input type="text" name="auteur" placeholder="Nom de l'auteur" ngModel required>
+    <select name="note" placeholder="Note de l'album" ngModel>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+    <button type="submit" [disabled]="f.invalid">Save</button>
+</form>
