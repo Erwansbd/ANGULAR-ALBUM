@@ -19,21 +19,21 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-/*   login(f:NgForm) {
-    this.authService.logIn();
+  login(f:NgForm) {
+    this.authService.logIn(f.value);
     this.isAuth = this.authService.isLoggedIn();
-  } */
+  }
 
   onLogOut() {
     this.authService.logOut();
     this.isAuth = this.authService.isLoggedIn();
   }
 
-  login(f:NgForm) {
+/*   login(f:NgForm) {
     this.authService.logIn(f.value,
       (error) => this.error = error
       );
     this.isAuth = this.authService.isLoggedIn();
-  }
+  } */
 
 }
