@@ -7,7 +7,8 @@ export class Album {
     auteur?: string;
     note?: number;
     listeChanson?: Array<Chanson>;
-    genre?: Genre
+    genre?: Genre;
+    imageUrl?: string;
 
     constructor(args: Album = {}) {
         this.id = args.id;
@@ -16,11 +17,12 @@ export class Album {
         this.note = args.note;
         this.listeChanson = args.listeChanson;
         this.genre = args.genre;
+        this.imageUrl = args.imageUrl;
     }
 }
 
 export const ALBUM = [
-    new Album({ id: 0, nom: "When we fall Asleep, Where Do We Go?", auteur: "Billie Eilish", note: 9, listeChanson: [new Chanson({ titre: "Bad Guy", duree: 3.14 }), new Chanson({ titre: "xanny", duree: 4.04 }), new Chanson({ titre: "you should see me in a crown", duree: 3.01 })], genre: Genre.POP }),
+    new Album({ id: 0, nom: "When we fall Asleep, Where Do We Go?", auteur: "Billie Eilish", note: 9, listeChanson: [new Chanson({ titre: "Bad Guy", duree: 3.14 }), new Chanson({ titre: "xanny", duree: 4.04 }), new Chanson({ titre: "you should see me in a crown", duree: 3.01 })], genre: Genre.POP, imageUrl: 'When-we-sleep.jpg' }),
     new Album({ id: 1, nom: "Beerbongs & Bentleys", auteur: "Post Malone", note: 8, listeChanson: [new Chanson({ titre: "rockstar", duree: 3.38 }), new Chanson({ titre: "Better Now", duree: 3.51 }), new Chanson({ titre: "Psycho", duree: 3.42 })], genre: Genre.POP }),
     new Album({ id: 2, nom: "Astroworld", auteur: "Travis Scott", note: 8, listeChanson: [new Chanson({ titre: "STARGAZING", duree: 4.31 }), new Chanson({ titre: "SICKO MODE", duree: 5.13 }), new Chanson({ titre: "WAKE UP", duree: 3.52 })], genre: Genre.POP }),
 ]

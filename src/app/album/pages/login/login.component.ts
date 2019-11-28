@@ -19,15 +19,20 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(f:NgForm) {
-    this.authService.logIn(f.value,
-      (error) => this.error =error
-      );
+/*   login(f:NgForm) {
+    this.authService.logIn();
     this.isAuth = this.authService.isLoggedIn();
-  }
+  } */
 
   onLogOut() {
     this.authService.logOut();
+    this.isAuth = this.authService.isLoggedIn();
+  }
+
+  login(f:NgForm) {
+    this.authService.logIn(f.value,
+      (error) => this.error = error
+      );
     this.isAuth = this.authService.isLoggedIn();
   }
 

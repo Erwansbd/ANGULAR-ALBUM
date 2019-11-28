@@ -1,7 +1,8 @@
+<app-navbar></app-navbar>
 <div class="container">
   <div>
     <p id="informations">
-      <img src="/src/assets/Beerbongs-Bentleys.jpg">L'Album {{album.nom}} de {{album.auteur}}</p>
+      <img [src]="'assets/'+album.imageUrl">L'Album {{album.nom}} de {{album.auteur}}</p>
   </div>
   <div class="form-group mb-2">
     <label for="note" class="sr-only">Choix de la note</label>

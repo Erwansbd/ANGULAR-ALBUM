@@ -7,31 +7,44 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
   private isAuth = false;
+  private url = 'albums';
 
   constructor(private router: Router, private httpClient: HttpClient) { }
 
   isLoggedIn() {
+    this.isAuth = JSON.parse(localStorage.getItem('auth'));
     return this.isAuth;
   }
 
-  logIn(user, cb) {
-    this.isAuth = true;
-    this.router.navigate(['/album'])
-    console.log(user);
-/*     
-    this.httpClient.post('/api/users', user).subscribe(
-      () => {
+/*   logIn() {
         this.isAuth = true;
         this.router.navigate(['/album'])
-      },
-      () => cb("Identifiants incorrects")
-    ); */
 
+  } */
+  logIn(user, cb) {
+  
+    console.log(user);
+    this.httpClient.post(this.url +'/log', user).subscribe(
+      (status) => {
+        if(status) {
+          this.isAuth = true  ;
+          this.router.navigate(['/album'])
+          localStorage.setItem('auth','true');
+        } else {
+          cb("Identifiants incorrects")
+        }
+
+      },
+      (err) => cb("Identifiants incorrects")
+    );
+  
   }
 
   logOut() {
     this.isAuth = false;
+    localStorage.removeItem('auth');
     this.router.navigate(['/login']);
 
   }
 }
+

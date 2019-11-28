@@ -1,5 +1,52 @@
 <app-navbar></app-navbar>
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <input type="text" placeholder="Nom de l'album" formControlName="name">
+    <input type="text" placeholder="Nom de l'auteur" formControlName="auteur">
+    <select name="note" placeholder="Note de l'album" formControlName="note">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+    <div formArrayName="songs">
+        <div *ngFor="let control of songs.controls;let i = index">
+            <div [formGroupName]="i">
+                <input type="text" formControlName="name">
+                <input type="text" formControlName="length">
+            </div>
+        </div>
+    </div>
+    <button type="button" (click)="addSong()">Nouvelle chanson</button>
+    <button type="submit" [disabled]="form.invalid">Save</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)">
         <input type="text" name="nom" placeholder="Nom de l'album" ngModel required>
         <input type="text" name="auteur" placeholder="Nom de l'auteur" ngModel required>
     <select name="note" placeholder="Note de l'album" ngModel>
@@ -11,4 +58,4 @@
         <option>5</option>
     </select>
     <button type="submit" [disabled]="f.invalid">Save</button>
-</form>
+</form> -->
