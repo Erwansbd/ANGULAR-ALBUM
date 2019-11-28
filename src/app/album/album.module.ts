@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NewAlbumComponent } from './pages/new-album/new-album.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -15,7 +16,8 @@ import { NewAlbumComponent } from './pages/new-album/new-album.component';
     AlbumComponent,
     AlbumDetailsComponent,
     AlbumListeComponent,
-    NewAlbumComponent
+    NewAlbumComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,

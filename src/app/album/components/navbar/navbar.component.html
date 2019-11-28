@@ -17,7 +17,6 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
       </li>
     </ul>
-    <button type="button" class="btn btn-dark" (click)="onLogIn()" *ngIf="!isAuth">Login</button>
     <button type="button" class="btn btn-light" (click)="onLogOut()" *ngIf="isAuth">Logout</button>
       <p class="my-2 my-sm-0">{{user.nom}} - {{user.lastLogin | date: 'EEEE dd LLLL yyy'}}</p>
   </div>

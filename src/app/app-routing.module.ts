@@ -5,10 +5,15 @@ import { AlbumListeComponent } from './album/pages/album-liste/album-liste.compo
 import { AlbumDetailsComponent } from './album/components/album-details/album-details.component';
 import { AuthGuardService } from './auth-guard.service';
 import { NewAlbumComponent } from './album/pages/new-album/new-album.component';
+import { LoginComponent } from './album/pages/login/login.component';
 
 const routes: Routes = [
+  
   {
-    path: 'album', component: AlbumListeComponent
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: 'album', component: AlbumListeComponent, canActivate: [ AuthGuardService ]
   },
   {
     path: 'album-details/:id', component: AlbumDetailsComponent, canActivate: [AuthGuardService]
